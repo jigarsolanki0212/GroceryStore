@@ -22,11 +22,7 @@ import Toast from 'react-native-simple-toast';
 import {useDispatch, useSelector} from 'react-redux';
 import {callData} from '../../../api';
 
-import {
-  apiFinish,
-  apiStart,
-  getFruits,
-} from '../../../../FoodRedux/actions/apiAction';
+import {apiFinish, apiStart} from '../../../../FoodRedux/actions/apiAction';
 import {useFocusEffect} from '@react-navigation/native';
 
 const HomeScreen = ({navigation}) => {
@@ -58,7 +54,6 @@ const HomeScreen = ({navigation}) => {
     if (apiReducer?.data == 0) {
       dispatch(apiStart());
       let fruits = await callData();
-      // console.log(fruits, 'fruits');
       var dataOfCategories = fruits.map(item => {
         return item.Categories;
       });
